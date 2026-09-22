@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import Reveal from "@/components/Reveal";
-import { showcaseItems } from "@/lib/content/system";
+import type { Dictionary } from "@/lib/i18n/get-dictionary";
 
 const pillarAccent: Record<string, string> = {
   build: "#F5F3EF",
@@ -12,19 +12,20 @@ const pillarAccent: Record<string, string> = {
   grow: "#FF5A29",
 };
 
-export default function Showcase() {
+export default function Showcase({ dict }: { dict: Dictionary }) {
+  const items = dict.showcase.items;
   const [active, setActive] = useState(0);
-  const current = showcaseItems[active];
+  const current = items[active];
 
   return (
     <section className="border-t border-border bg-bg-elevated">
       <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
         <Reveal>
           <span className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-accent">
-            Show, don&apos;t tell
+            {dict.showcase.eyebrow}
           </span>
           <h2 className="mt-4 max-w-2xl text-balance font-display text-4xl font-semibold tracking-tight text-fg lg:text-5xl">
-            What can AGAT create?
+            {dict.showcase.title}
           </h2>
         </Reveal>
 
@@ -32,9 +33,9 @@ export default function Showcase() {
           <div
             className="flex flex-wrap gap-2 lg:flex-col lg:gap-1"
             role="tablist"
-            aria-label="Showcase categories"
+            aria-label={dict.showcase.ariaLabel}
           >
-            {showcaseItems.map((item, i) => (
+            {items.map((item, i) => (
               <button
                 key={item.key}
                 role="tab"

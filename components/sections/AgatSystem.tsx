@@ -1,30 +1,26 @@
 import Reveal from "@/components/Reveal";
-import { systemLayers } from "@/lib/content/system";
+import type { Dictionary } from "@/lib/i18n/get-dictionary";
 
-export default function AgatSystem() {
+export default function AgatSystem({ dict }: { dict: Dictionary }) {
+  const d = dict.system;
   return (
     <section className="border-t border-border">
       <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.3fr] lg:gap-20">
           <Reveal>
             <span className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-accent">
-              The AGAT system
+              {d.eyebrow}
             </span>
             <h2 className="mt-4 text-balance font-display text-4xl font-semibold tracking-tight text-fg lg:text-5xl">
-              One idea.
+              {d.titleLine1}
               <br />
-              Many digital layers.
+              {d.titleLine2}
             </h2>
-            <p className="mt-6 max-w-sm text-fg-muted">
-              Most businesses end up briefing seven different vendors for
-              seven disconnected pieces. AGAT builds them as one system —
-              so the brand, the site, the content and the automation all
-              speak to each other.
-            </p>
+            <p className="mt-6 max-w-sm text-fg-muted">{d.description}</p>
           </Reveal>
 
           <ol className="relative border-l border-border pl-8">
-            {systemLayers.map((layer, i) => (
+            {d.layers.map((layer, i) => (
               <Reveal key={layer.label} delay={i * 0.05} y={12} as="li">
                 <div className="relative pb-10 last:pb-0">
                   <span

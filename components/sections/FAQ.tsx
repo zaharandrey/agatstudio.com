@@ -3,25 +3,26 @@
 import { useState } from "react";
 import { Plus } from "lucide-react";
 import Reveal from "@/components/Reveal";
-import { faqItems } from "@/lib/content/faq";
+import type { Dictionary } from "@/lib/i18n/get-dictionary";
 
-export default function FAQ() {
+export default function FAQ({ dict }: { dict: Dictionary }) {
   const [open, setOpen] = useState<number | null>(0);
+  const items = dict.faqSection.items;
 
   return (
     <section className="border-t border-border">
       <div className="mx-auto max-w-4xl px-6 py-20 lg:px-10 lg:py-28">
         <Reveal>
           <span className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-accent">
-            FAQ
+            {dict.faqSection.eyebrow}
           </span>
           <h2 className="mt-4 font-display text-4xl font-semibold tracking-tight text-fg lg:text-5xl">
-            Good questions.
+            {dict.faqSection.title}
           </h2>
         </Reveal>
 
         <div className="mt-12 divide-y divide-border border-t border-border">
-          {faqItems.map((item, i) => {
+          {items.map((item, i) => {
             const isOpen = open === i;
             return (
               <div key={item.question}>

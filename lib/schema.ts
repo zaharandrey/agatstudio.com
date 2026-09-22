@@ -1,8 +1,13 @@
 import { site, contactEmail } from "@/lib/content/site";
-import { pillars } from "@/lib/content/pillars";
-import { faqItems } from "@/lib/content/faq";
+import { getPillars } from "@/lib/content/pillars";
+import type { Dictionary } from "@/lib/i18n/get-dictionary";
+import { defaultLocale, localizeHref, type Locale } from "@/lib/i18n/config";
 
-export function organizationSchema() {
+function urlFor(locale: Locale, path: string) {
+  return `${site.url}${localizeHref(locale, path)}`;
+}
+
+export function organizationSchema(dict: Dictionary, locale: Locale) {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -10,43 +15,45 @@ export function organizationSchema() {
     name: site.name,
     url: site.url,
     email: contactEmail,
-    description: site.description,
+    description: dict.site.description,
     logo: `${site.url}/brand/agat-mark.svg`,
-    slogan: site.tagline,
+    slogan: dict.site.tagline,
+    inLanguage: locale,
   };
 }
 
-export function websiteSchema() {
+export function websiteSchema(dict: Dictionary, locale: Locale) {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "@id": `${site.url}/#website`,
-    url: site.url,
+    url: locale === defaultLocale ? site.url : urlFor(locale, "/"),
     name: site.name,
-    description: site.description,
+    description: dict.site.description,
     publisher: { "@id": `${site.url}/#organization` },
-    inLanguage: "en",
+    inLanguage: locale,
   };
 }
 
-export function servicesSchema() {
-  return pillars.map((pillar) => ({
+export function servicesSchema(dict: Dictionary, locale: Locale) {
+  return getPillars(dict).map((pillar) => ({
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": `${site.url}/services#${pillar.id}`,
+    "@id": `${urlFor(locale, "/services")}#${pillar.id}`,
     name: pillar.name,
     serviceType: pillar.short,
     description: pillar.description,
     provider: { "@id": `${site.url}/#organization` },
     areaServed: "Worldwide",
+    inLanguage: locale,
   }));
 }
 
-export function faqSchema() {
+export function faqSchema(dict: Dictionary) {
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    mainEntity: faqItems.map((item) => ({
+    mainEntity: dict.faqSection.items.map((item) => ({
       "@type": "Question",
       name: item.question,
       acceptedAnswer: {

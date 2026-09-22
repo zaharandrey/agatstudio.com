@@ -1,11 +1,13 @@
 import Link from "next/link";
 import { ArrowUpRight, Check } from "lucide-react";
 import Reveal from "@/components/Reveal";
-import { pillars } from "@/lib/content/pillars";
+import { getPillar } from "@/lib/content/pillars";
+import { localizeHref, type Locale } from "@/lib/i18n/config";
+import type { Dictionary } from "@/lib/i18n/get-dictionary";
 
-const grow = pillars.find((p) => p.id === "grow")!;
+export default function WebsiteCare({ locale, dict }: { locale: Locale; dict: Dictionary }) {
+  const grow = getPillar(dict, "grow");
 
-export default function WebsiteCare() {
   return (
     <section className="border-t border-border">
       <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
@@ -15,17 +17,16 @@ export default function WebsiteCare() {
               {grow.name}
             </span>
             <h2 className="mt-4 text-balance font-display text-4xl font-semibold tracking-tight text-fg lg:text-5xl">
-              Launch is not the end.
+              {dict.websiteCare.title}
             </h2>
-            <p className="mt-6 max-w-md text-fg-muted">{grow.statement} We keep systems
-              technically healthy, visible in search and AI answers, and
-              improving — not frozen the day they ship.
+            <p className="mt-6 max-w-md text-fg-muted">
+              {grow.statement} {dict.websiteCare.bodySuffix}
             </p>
             <Link
-              href="/contact"
+              href={localizeHref(locale, "/contact")}
               className="mt-8 inline-flex items-center gap-1.5 text-sm font-semibold text-fg hover:text-accent"
             >
-              Talk about ongoing support
+              {dict.websiteCare.cta}
               <ArrowUpRight size={15} aria-hidden="true" />
             </Link>
           </Reveal>

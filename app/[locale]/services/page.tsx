@@ -1,28 +1,43 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import Script from "next/script";
 import { Check } from "lucide-react";
 import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import FAQ from "@/components/sections/FAQ";
 import FinalCTA from "@/components/sections/FinalCTA";
-import { pillars } from "@/lib/content/pillars";
-import { servicesSchema, breadcrumbSchema } from "@/lib/schema";
+import { getPillars } from "@/lib/content/pillars";
+import { servicesSchema, breadcrumbSchema, faqSchema } from "@/lib/schema";
 import { site } from "@/lib/content/site";
+import { getDictionary } from "@/lib/i18n/get-dictionary";
+import { localeAlternates, type Locale } from "@/lib/i18n/config";
 
-export const metadata: Metadata = {
-  title: "Services",
-  description:
-    "Four connected disciplines: AGAT Build (websites & digital products), AGAT Create (AI creative studio), AGAT Agents (AI agents & automation) and AGAT Grow (SEO, GEO & continuous growth).",
-  alternates: { canonical: "/services" },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale: localeParam } = await params;
+  const locale = localeParam as Locale;
+  const dict = await getDictionary(locale);
+  return {
+    title: dict.metadata.services.title,
+    description: dict.metadata.services.description,
+    alternates: localeAlternates(locale, "/services"),
+  };
+}
 
-export default function ServicesPage() {
+export default async function ServicesPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale: localeParam } = await params;
+  const locale = localeParam as Locale;
+  const dict = await getDictionary(locale);
+  const pillars = getPillars(dict);
+
   return (
     <>
       <Script
         id="schema-services"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema()) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesSchema(dict, locale)) }}
       />
       <Script
         id="schema-breadcrumb-services"
@@ -30,17 +45,17 @@ export default function ServicesPage() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(
             breadcrumbSchema([
-              { name: "Home", url: site.url },
-              { name: "Services", url: `${site.url}/services` },
+              { name: dict.breadcrumb.home, url: site.url },
+              { name: dict.breadcrumb.services, url: `${site.url}/services` },
             ])
           ),
         }}
       />
 
       <PageHero
-        eyebrow="Services"
-        title="Four disciplines. One system."
-        description="AGAT doesn't sell a list of deliverables. Every engagement draws from the same four connected disciplines — as much or as little as the project needs."
+        eyebrow={dict.servicesPage.pageHero.eyebrow}
+        title={dict.servicesPage.pageHero.title}
+        description={dict.servicesPage.pageHero.description}
       />
 
       {pillars.map((pillar, i) => (
@@ -102,8 +117,13 @@ export default function ServicesPage() {
         </section>
       ))}
 
-      <FAQ />
-      <FinalCTA />
+      <Script
+        id="schema-faq-services"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema(dict)) }}
+      />
+      <FAQ dict={dict} />
+      <FinalCTA locale={locale} dict={dict} />
     </>
   );
 }

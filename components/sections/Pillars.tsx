@@ -5,20 +5,23 @@ import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
 import Reveal from "@/components/Reveal";
-import { pillars } from "@/lib/content/pillars";
+import { getPillars } from "@/lib/content/pillars";
+import { localizeHref, type Locale } from "@/lib/i18n/config";
+import type { Dictionary } from "@/lib/i18n/get-dictionary";
 
-export default function Pillars() {
+export default function Pillars({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const pillars = getPillars(dict);
 
   return (
     <section id="pillars" className="border-t border-border">
       <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
         <Reveal>
           <span className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-accent">
-            What we build
+            {dict.pillarsSection.eyebrow}
           </span>
           <h2 className="mt-4 max-w-2xl text-balance font-display text-4xl font-semibold tracking-tight text-fg lg:text-5xl">
-            Four disciplines. One system.
+            {dict.pillarsSection.title}
           </h2>
         </Reveal>
 
@@ -71,10 +74,10 @@ export default function Pillars() {
                         </div>
                       )}
                       <Link
-                        href={`/services#${pillar.id}`}
+                        href={localizeHref(locale, `/services#${pillar.id}`)}
                         className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-fg hover:text-accent"
                       >
-                        Explore {pillar.name}
+                        {dict.pillarsSection.exploreCta} {pillar.name}
                         <ArrowUpRight size={14} aria-hidden="true" />
                       </Link>
                     </div>

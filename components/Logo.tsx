@@ -1,11 +1,12 @@
 import Link from "next/link";
+import { localizeHref, type Locale } from "@/lib/i18n/config";
 
-export default function Logo({ className = "" }: { className?: string }) {
+export default function Logo({ locale, className = "" }: { locale: Locale; className?: string }) {
   return (
     <Link
-      href="/"
+      href={localizeHref(locale, "/")}
       className={`group inline-flex items-center gap-2.5 font-display text-lg font-semibold tracking-tight text-fg ${className}`}
-      aria-label="AGAT — home"
+      aria-label={locale === "uk" ? "agat.top — головна" : "agat.top — home"}
     >
       <svg
         width="26"

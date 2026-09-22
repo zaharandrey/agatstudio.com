@@ -1,17 +1,13 @@
-// Central site configuration. Real contact details are not yet finalized —
-// every value below marked PLACEHOLDER must be replaced before launch.
+// Central, locale-independent site configuration. Translatable copy
+// (tagline, description, OG text) lives in lib/i18n/dictionaries/*.
+// Real contact details are not yet finalized — every value below marked
+// PLACEHOLDER must be replaced before launch.
 
 export const site = {
   name: "AGAT",
   legalName: "AGAT",
   domain: "agat.top",
   url: "https://agat.top",
-  locale: "en",
-  tagline: "From idea to digital system.",
-  description:
-    "We combine AI, design and technology to turn ideas into working digital systems.",
-  ogDescription:
-    "AGAT is an AI / digital agency. We build websites, AI creative, AI agents and automation — as one connected digital system.",
   keywords: [
     "AI agency",
     "AI digital agency",
@@ -28,11 +24,11 @@ export const site = {
 export const contactEmail = "hello@agat.top";
 
 export const socialLinks = [
-  { label: "Email", href: `mailto:${contactEmail}`, placeholder: true },
+  { key: "email", href: `mailto:${contactEmail}`, placeholder: true },
   // PLACEHOLDER — replace with the real Telegram handle.
-  { label: "Telegram", href: "https://t.me/agat_top", placeholder: true },
+  { key: "telegram", href: "https://t.me/agat_top", placeholder: true },
   // PLACEHOLDER — replace with the real Instagram handle.
-  { label: "Instagram", href: "https://instagram.com/agat.top", placeholder: true },
+  { key: "instagram", href: "https://instagram.com/agat.top", placeholder: true },
   // PLACEHOLDER — replace with the real LinkedIn page.
-  { label: "LinkedIn", href: "https://linkedin.com/company/agat-top", placeholder: true },
+  { key: "linkedin", href: "https://linkedin.com/company/agat-top", placeholder: true },
 ] as const;

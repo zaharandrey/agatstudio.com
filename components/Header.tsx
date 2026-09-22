@@ -6,12 +6,23 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import Logo from "@/components/Logo";
-import { primaryNav } from "@/lib/content/nav";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { localizeHref, type Locale } from "@/lib/i18n/config";
+import type { Dictionary } from "@/lib/i18n/get-dictionary";
 
-export default function Header() {
+export default function Header({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
+
+  const primaryNav = [
+    { href: "/work", label: dict.nav.work },
+    { href: "/services", label: dict.nav.services },
+    { href: "/process", label: dict.nav.process },
+    { href: "/lab", label: dict.nav.lab },
+    { href: "/about", label: dict.nav.about },
+    { href: "/contact", label: dict.nav.contact },
+  ];
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -37,43 +48,50 @@ export default function Header() {
         scrolled ? "border-border bg-bg/85 backdrop-blur-md" : "border-transparent bg-transparent"
       }`}
     >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 lg:px-10">
-        <Logo />
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-6 lg:px-10">
+        <Logo locale={locale} />
 
-        <nav className="hidden items-center gap-8 lg:flex" aria-label="Primary">
-          {primaryNav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`text-sm font-medium transition-colors hover:text-fg ${
-                pathname === item.href ? "text-fg" : "text-fg-muted"
-              }`}
-            >
-              {item.label}
-            </Link>
-          ))}
+        <nav className="hidden items-center gap-8 lg:flex" aria-label={dict.nav.primaryAriaLabel}>
+          {primaryNav.map((item) => {
+            const href = localizeHref(locale, item.href);
+            return (
+              <Link
+                key={item.href}
+                href={href}
+                className={`text-sm font-medium transition-colors hover:text-fg ${
+                  pathname === href ? "text-fg" : "text-fg-muted"
+                }`}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="hidden items-center gap-4 lg:flex">
+          <LanguageSwitcher locale={locale} ariaLabel={dict.languageSwitcher.ariaLabel} />
           <Link
-            href="/contact"
+            href={localizeHref(locale, "/contact")}
             className="inline-flex items-center gap-1.5 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground transition-colors hover:bg-fg"
           >
-            Start a project
+            {dict.nav.startProject}
             <ArrowUpRight size={16} aria-hidden="true" />
           </Link>
         </div>
 
-        <button
-          type="button"
-          onClick={() => setOpen((v) => !v)}
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-          aria-label={open ? "Close menu" : "Open menu"}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-fg lg:hidden"
-        >
-          {open ? <X size={18} /> : <Menu size={18} />}
-        </button>
+        <div className="flex items-center gap-3 lg:hidden">
+          <LanguageSwitcher locale={locale} ariaLabel={dict.languageSwitcher.ariaLabel} />
+          <button
+            type="button"
+            onClick={() => setOpen((v) => !v)}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+            aria-label={open ? dict.nav.closeMenu : dict.nav.openMenu}
+            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-border text-fg"
+          >
+            {open ? <X size={18} /> : <Menu size={18} />}
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -86,7 +104,7 @@ export default function Header() {
             transition={{ duration: 0.25, ease: "easeInOut" }}
             className="overflow-hidden border-t border-border bg-bg lg:hidden"
           >
-            <nav className="flex flex-col gap-1 px-6 py-6" aria-label="Mobile">
+            <nav className="flex flex-col gap-1 px-6 py-6" aria-label={dict.nav.mobileAriaLabel}>
               {primaryNav.map((item, i) => (
                 <motion.div
                   key={item.href}
@@ -95,7 +113,7 @@ export default function Header() {
                   transition={{ delay: i * 0.04 }}
                 >
                   <Link
-                    href={item.href}
+                    href={localizeHref(locale, item.href)}
                     onClick={() => setOpen(false)}
                     className="block border-b border-border py-4 font-display text-2xl font-medium text-fg"
                   >
@@ -104,11 +122,11 @@ export default function Header() {
                 </motion.div>
               ))}
               <Link
-                href="/contact"
+                href={localizeHref(locale, "/contact")}
                 onClick={() => setOpen(false)}
                 className="mt-6 inline-flex w-fit items-center gap-1.5 rounded-full bg-accent px-5 py-3 text-sm font-semibold text-accent-foreground"
               >
-                Start a project
+                {dict.nav.startProject}
                 <ArrowUpRight size={16} aria-hidden="true" />
               </Link>
             </nav>

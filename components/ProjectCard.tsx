@@ -1,12 +1,13 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import CoverArt from "@/components/CoverArt";
-import type { Project } from "@/lib/content/projects";
+import { localizeHref, type Locale } from "@/lib/i18n/config";
+import type { LocalizedProject } from "@/lib/content/projects";
 
-export default function ProjectCard({ project }: { project: Project }) {
+export default function ProjectCard({ project, locale }: { project: LocalizedProject; locale: Locale }) {
   return (
     <Link
-      href={`/work/${project.slug}`}
+      href={localizeHref(locale, `/work/${project.slug}`)}
       className="group block overflow-hidden rounded-3xl border border-border transition-colors hover:border-fg-muted"
     >
       <CoverArt {...project.cover} className="aspect-[4/3] w-full" />

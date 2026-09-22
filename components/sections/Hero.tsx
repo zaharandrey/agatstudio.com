@@ -4,15 +4,17 @@ import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
-import { heroFlow } from "@/lib/content/system";
+import { localizeHref, type Locale } from "@/lib/i18n/config";
+import type { Dictionary } from "@/lib/i18n/get-dictionary";
 
-export default function Hero() {
+export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
+  const flow = dict.hero.flow;
   const [active, setActive] = useState(0);
 
   useEffect(() => {
-    const id = setInterval(() => setActive((v) => (v + 1) % heroFlow.length), 1400);
+    const id = setInterval(() => setActive((v) => (v + 1) % flow.length), 1400);
     return () => clearInterval(id);
-  }, []);
+  }, [flow.length]);
 
   return (
     <section className="relative overflow-hidden">
@@ -25,7 +27,7 @@ export default function Hero() {
           transition={{ duration: 0.5 }}
           className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-fg-muted"
         >
-          AI / Digital Agency
+          {dict.hero.eyebrow}
         </motion.p>
 
         <motion.h1
@@ -34,9 +36,9 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
           className="mt-6 max-w-4xl text-balance font-display text-[13vw] font-semibold leading-[0.95] tracking-tight text-fg sm:text-7xl lg:text-8xl"
         >
-          From idea to
+          {dict.hero.titleLine1}
           <br />
-          digital system.
+          {dict.hero.titleLine2}
         </motion.h1>
 
         <motion.p
@@ -45,9 +47,7 @@ export default function Hero() {
           transition={{ duration: 0.7, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
           className="mt-8 max-w-xl text-balance text-lg leading-relaxed text-fg-muted lg:text-xl"
         >
-          We combine AI, design and technology to turn ideas into working
-          digital systems — websites, AI creative, agents and automation,
-          built as one connected whole.
+          {dict.hero.description}
         </motion.p>
 
         <motion.div
@@ -57,17 +57,17 @@ export default function Hero() {
           className="mt-10 flex flex-wrap items-center gap-4"
         >
           <Link
-            href="/contact"
+            href={localizeHref(locale, "/contact")}
             className="inline-flex items-center gap-1.5 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground transition-colors hover:bg-fg"
           >
-            Start a project
+            {dict.hero.ctaPrimary}
             <ArrowUpRight size={16} aria-hidden="true" />
           </Link>
           <Link
-            href="/work"
+            href={localizeHref(locale, "/work")}
             className="inline-flex items-center gap-1.5 rounded-full border border-border px-6 py-3 text-sm font-semibold text-fg transition-colors hover:border-fg-muted"
           >
-            See our work
+            {dict.hero.ctaSecondary}
           </Link>
         </motion.div>
 
@@ -76,9 +76,9 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.5 }}
           className="mt-20 flex flex-wrap items-center gap-x-2 gap-y-3 lg:mt-28"
-          aria-label="How an idea becomes a system"
+          aria-label={dict.hero.flowAriaLabel}
         >
-          {heroFlow.map((step, i) => (
+          {flow.map((step, i) => (
             <span key={step} className="flex items-center gap-2">
               <span
                 className={`rounded-full border px-4 py-2 font-mono text-xs uppercase tracking-wider transition-colors duration-500 ${
@@ -89,7 +89,7 @@ export default function Hero() {
               >
                 {step}
               </span>
-              {i < heroFlow.length - 1 && (
+              {i < flow.length - 1 && (
                 <span className="text-fg-muted/40" aria-hidden="true">
                   →
                 </span>

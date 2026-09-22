@@ -1,18 +1,19 @@
 import Reveal from "@/components/Reveal";
 import { toolGroups } from "@/lib/content/tools";
+import type { Dictionary } from "@/lib/i18n/get-dictionary";
 
 const allTools = toolGroups.flatMap((g) => g.tools);
 
-export default function Tools() {
+export default function Tools({ dict }: { dict: Dictionary }) {
   return (
     <section className="border-t border-border bg-bg-elevated">
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-20">
         <Reveal>
           <div className="flex flex-wrap items-baseline justify-between gap-3">
             <h2 className="font-mono text-xs font-medium uppercase tracking-[0.2em] text-fg-muted">
-              Tools we use
+              {dict.tools.title}
             </h2>
-            <p className="text-xs text-fg-muted">Not partners or sponsors — just what we build with.</p>
+            <p className="text-xs text-fg-muted">{dict.tools.note}</p>
           </div>
         </Reveal>
       </div>

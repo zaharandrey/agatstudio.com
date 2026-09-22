@@ -1,45 +1,23 @@
-// AGAT Lab — experimental explorations shown ahead of a larger body of
-// commercial work. Clearly framed as experiments, not shipped client work.
+import type { Dictionary } from "@/lib/i18n/get-dictionary";
 
-export type LabExperiment = {
+// Structural, locale-independent facts about each lab experiment (slug,
+// cover art gradient). Translated copy lives in dict.labExperiments,
+// matched by array index — both arrays must stay in the same order.
+
+export type LabMeta = {
   slug: string;
-  title: string;
-  category: string;
-  description: string;
   cover: { from: string; to: string; pattern: "strata" | "grid" | "wave" | "dot" };
 };
 
-export const labExperiments: LabExperiment[] = [
-  {
-    slug: "generative-interface-studies",
-    title: "Generative Interface Studies",
-    category: "Experimental interfaces",
-    description:
-      "A series of interface layouts generated and refined through AI-assisted iteration, exploring what a fully AI-native product UI could look like.",
-    cover: { from: "#1a1611", to: "#0b0b0a", pattern: "grid" },
-  },
-  {
-    slug: "ai-character-exploration",
-    title: "AI Character Exploration",
-    category: "AI characters",
-    description:
-      "Consistent AI-generated characters across multiple scenes and expressions — a study in identity persistence for future brand mascots.",
-    cover: { from: "#241a12", to: "#0b0b0a", pattern: "dot" },
-  },
-  {
-    slug: "motion-from-stills",
-    title: "Motion From Stills",
-    category: "AI video",
-    description:
-      "Turning a handful of AI-generated stills into a short motion sequence, testing how far AI video tools can stretch a limited source set.",
-    cover: { from: "#151a17", to: "#0b0b0a", pattern: "wave" },
-  },
-  {
-    slug: "n8n-content-pipeline",
-    title: "Automated Content Pipeline",
-    category: "Automation experiment",
-    description:
-      "An n8n workflow that drafts, formats and queues social captions from a single input brief — reviewed, never auto-published.",
-    cover: { from: "#1c150f", to: "#0b0b0a", pattern: "strata" },
-  },
+export const labMeta: LabMeta[] = [
+  { slug: "generative-interface-studies", cover: { from: "#1a1611", to: "#0b0b0a", pattern: "grid" } },
+  { slug: "ai-character-exploration", cover: { from: "#241a12", to: "#0b0b0a", pattern: "dot" } },
+  { slug: "motion-from-stills", cover: { from: "#151a17", to: "#0b0b0a", pattern: "wave" } },
+  { slug: "n8n-content-pipeline", cover: { from: "#1c150f", to: "#0b0b0a", pattern: "strata" } },
 ];
+
+export type LocalizedLabExperiment = LabMeta & Dictionary["labExperiments"][number];
+
+export function getLabExperiments(dict: Dictionary): LocalizedLabExperiment[] {
+  return labMeta.map((meta, i) => ({ ...meta, ...dict.labExperiments[i] }));
+}
