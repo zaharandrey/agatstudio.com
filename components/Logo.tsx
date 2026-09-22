@@ -28,7 +28,7 @@ export default function Logo({ className = "" }: { className?: string }) {
         />
       </svg>
       <span>
-        AGAT
+        agat
         <span className="text-fg-muted transition-colors group-hover:text-accent">.top</span>
       </span>
     </Link>
