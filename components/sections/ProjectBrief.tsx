@@ -85,7 +85,7 @@ export default function ProjectBrief({ dict }: { dict: Dictionary }) {
               <div className="mt-8 flex flex-wrap gap-4">
                 <a
                   href={mailtoHref}
-                  className="inline-flex items-center gap-1.5 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground hover:bg-fg"
+                  className="inline-flex items-center gap-1.5 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground hover:bg-fg hover:text-bg"
                 >
                   {b.summary.sendCta}
                   <ArrowUpRight size={16} aria-hidden="true" />
@@ -249,7 +249,7 @@ export default function ProjectBrief({ dict }: { dict: Dictionary }) {
           <button
             type="submit"
             disabled={!isValid}
-            className="inline-flex items-center gap-1.5 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground transition-colors hover:bg-fg disabled:cursor-not-allowed disabled:opacity-40"
+            className="inline-flex items-center gap-1.5 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground transition-colors hover:bg-fg hover:text-bg disabled:cursor-not-allowed disabled:opacity-40"
           >
             {b.submitCta}
             <ArrowUpRight size={16} aria-hidden="true" />

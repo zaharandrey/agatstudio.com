@@ -6,10 +6,10 @@ import Reveal from "@/components/Reveal";
 import type { Dictionary } from "@/lib/i18n/get-dictionary";
 
 const pillarAccent: Record<string, string> = {
-  build: "#F5F3EF",
-  create: "#FF5A29",
-  agents: "#9A968D",
-  grow: "#FF5A29",
+  build: "var(--color-fg)",
+  create: "var(--color-accent)",
+  agents: "var(--color-fg-muted)",
+  grow: "var(--color-accent)",
 };
 
 export default function Showcase({ dict }: { dict: Dictionary }) {

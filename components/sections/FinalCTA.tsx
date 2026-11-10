@@ -5,7 +5,8 @@ import type { Dictionary } from "@/lib/i18n/get-dictionary";
 
 export default function FinalCTA({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   return (
-    <section className="border-t border-border">
+    <section className="theme-dark panel-dark relative mb-3 mt-16 overflow-hidden lg:mb-5 lg:mt-24">
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_bottom,_rgba(255,90,41,0.16),_transparent_60%)]" aria-hidden="true" />
       <div className="mx-auto max-w-7xl px-6 py-24 text-center lg:px-10 lg:py-32">
         <Reveal>
           <h2 className="text-balance font-display text-5xl font-semibold tracking-tight text-fg sm:text-6xl lg:text-7xl">

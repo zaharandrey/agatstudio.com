@@ -8,7 +8,7 @@ type Props = {
 export default function CoverArt({ from, to, pattern, className = "" }: Props) {
   return (
     <div
-      className={`relative overflow-hidden ${className}`}
+      className={`theme-dark relative overflow-hidden ${className}`}
       style={{ background: `linear-gradient(135deg, ${from}, ${to})` }}
       aria-hidden="true"
     >

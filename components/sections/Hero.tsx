@@ -17,7 +17,7 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionar
   }, [flow.length]);
 
   return (
-    <section className="relative overflow-hidden">
+    <section className="theme-dark panel-dark relative mt-2 overflow-hidden">
       <BackgroundStrata />
 
       <div className="relative mx-auto max-w-7xl px-6 pb-20 pt-20 lg:px-10 lg:pb-28 lg:pt-28">
@@ -58,7 +58,7 @@ export default function Hero({ locale, dict }: { locale: Locale; dict: Dictionar
         >
           <Link
             href={localizeHref(locale, "/contact")}
-            className="inline-flex items-center gap-1.5 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground transition-colors hover:bg-fg"
+            className="inline-flex items-center gap-1.5 rounded-full bg-accent px-6 py-3 text-sm font-semibold text-accent-foreground transition-colors hover:bg-fg hover:text-bg"
           >
             {dict.hero.ctaPrimary}
             <ArrowUpRight size={16} aria-hidden="true" />

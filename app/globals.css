@@ -1,14 +1,48 @@
 @import "tailwindcss";
 
 :root {
+  /* Light (default) — warm paper, ink text, one copper accent. */
+  --color-bg: #f4f0e8;
+  --color-bg-elevated: #ebe5d9;
+  --color-fg: #16140f;
+  --color-fg-muted: #67615a;
+  --color-border: #dbd3c4;
+  --color-accent: #ff5a29;
+  --color-accent-ink: #c2410c; /* copper deep enough for small text on paper */
+  --color-accent-foreground: #0b0b0a;
+  --color-card: #fbf9f5;
+}
+
+/* Dark "showcase" panels — hero, AGAT System, final CTA, footer, cover art.
+   Re-scopes every token, so components inside need no changes. */
+.theme-dark {
   --color-bg: #0b0b0a;
   --color-bg-elevated: #141310;
   --color-fg: #f5f3ef;
   --color-fg-muted: #9a968d;
   --color-border: #26241f;
-  --color-accent: #ff5a29;
-  --color-accent-foreground: #0b0b0a;
+  --color-accent-ink: #ff5a29;
   --color-card: #121110;
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+}
+
+/* Small copper text uses the deeper ink on light backgrounds (WCAG AA). */
+.text-accent {
+  color: var(--color-accent-ink);
+}
+
+/* Rounded dark panel that floats on the paper background. */
+.panel-dark {
+  margin-inline: 0.75rem;
+  border-radius: 2rem;
+  isolation: isolate;
+}
+@media (min-width: 1024px) {
+  .panel-dark {
+    margin-inline: 1.25rem;
+    border-radius: 2.5rem;
+  }
 }
 
 @theme inline {
@@ -18,6 +52,7 @@
   --color-fg-muted: var(--color-fg-muted);
   --color-border: var(--color-border);
   --color-accent: var(--color-accent);
+  --color-accent-ink: var(--color-accent-ink);
   --color-accent-foreground: var(--color-accent-foreground);
   --color-card: var(--color-card);
 
@@ -93,7 +128,7 @@ body {
   text-wrap: balance;
 }
 
-/* thin, quiet scrollbar that still respects the dark theme */
+/* thin, quiet scrollbar that follows the active theme */
 ::-webkit-scrollbar {
   width: 10px;
   height: 10px;

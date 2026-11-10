@@ -4,7 +4,7 @@ import type { Dictionary } from "@/lib/i18n/get-dictionary";
 export default function AgatSystem({ dict }: { dict: Dictionary }) {
   const d = dict.system;
   return (
-    <section className="border-t border-border">
+    <section className="theme-dark panel-dark my-16 lg:my-24">
       <div className="mx-auto max-w-7xl px-6 py-20 lg:px-10 lg:py-28">
         <div className="grid gap-12 lg:grid-cols-[1fr_1.3fr] lg:gap-20">
           <Reveal>

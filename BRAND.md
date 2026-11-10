@@ -46,7 +46,9 @@ or off-white → transparent) — never rainbow, never neon.
 
 ## Usage notes
 
-- The site defaults to the dark theme; it is the primary brand expression (premium, editorial, futuristic).
+- The site uses a warm light "paper" base (`:root` tokens) for readability and trust, with dark "showcase" panels
+  (`.theme-dark.panel-dark`: hero, AGAT System, final CTA, cover art) as the premium brand moments. Small copper
+  text on paper uses `--color-accent-ink` (#C2410C) for contrast; fills and the logo apex stay `--color-accent`.
 - Motion respects `prefers-reduced-motion`; the brand should never depend on animation to make sense.
 - Never claim partnerships with AI tool vendors (Claude, GPT, Midjourney, etc.) — they are listed under
   "Tools we use," not "Partners."

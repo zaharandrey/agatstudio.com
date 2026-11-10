@@ -72,7 +72,7 @@ export default function Header({ locale, dict }: { locale: Locale; dict: Diction
           <LanguageSwitcher locale={locale} ariaLabel={dict.languageSwitcher.ariaLabel} />
           <Link
             href={localizeHref(locale, "/contact")}
-            className="inline-flex items-center gap-1.5 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground transition-colors hover:bg-fg"
+            className="inline-flex items-center gap-1.5 rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground transition-colors hover:bg-fg hover:text-bg"
           >
             {dict.nav.startProject}
             <ArrowUpRight size={16} aria-hidden="true" />

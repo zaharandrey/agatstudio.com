@@ -22,7 +22,7 @@ export default function Footer({ locale, dict }: { locale: Locale; dict: Diction
   ];
 
   return (
-    <footer className="border-t border-border">
+    <footer>
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-10 lg:py-20">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
