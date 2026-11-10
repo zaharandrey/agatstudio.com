@@ -6,7 +6,7 @@ export default function Logo({ locale, className = "" }: { locale: Locale; class
     <Link
       href={localizeHref(locale, "/")}
       className={`group inline-flex items-center gap-2.5 font-display text-lg font-semibold tracking-tight text-fg ${className}`}
-      aria-label={locale === "uk" ? "agat.top — головна" : "agat.top — home"}
+      aria-label={locale === "uk" ? "AGAT Studio — головна" : "AGAT Studio — home"}
     >
       <svg
         width="26"
@@ -30,7 +30,7 @@ export default function Logo({ locale, className = "" }: { locale: Locale; class
       </svg>
       <span>
         agat
-        <span className="text-fg-muted transition-colors group-hover:text-accent">.top</span>
+        <span className="ml-1.5 font-normal text-fg-muted transition-colors group-hover:text-accent">studio</span>
       </span>
     </Link>
   );

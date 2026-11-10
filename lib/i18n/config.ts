@@ -7,8 +7,8 @@ export function isLocale(value: string): value is Locale {
 }
 
 /**
- * uk is served with no URL prefix (agat.top/...), en is served under /en
- * (agat.top/en/...). Use this everywhere an internal <Link> is built so the
+ * uk is served with no URL prefix (agatstudio.com/...), en is served under /en
+ * (agatstudio.com/en/...). Use this everywhere an internal <Link> is built so the
  * prefix stays consistent with the routing in middleware.ts.
  */
 export function localizeHref(locale: Locale, path: string): string {

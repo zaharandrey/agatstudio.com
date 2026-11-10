@@ -4,10 +4,10 @@
 // PLACEHOLDER must be replaced before launch.
 
 export const site = {
-  name: "AGAT",
-  legalName: "AGAT",
-  domain: "agat.top",
-  url: "https://agat.top",
+  name: "AGAT Studio",
+  legalName: "AGAT Studio",
+  domain: "agatstudio.com",
+  url: "https://agatstudio.com",
   keywords: [
     "AI agency",
     "AI digital agency",
@@ -21,14 +21,14 @@ export const site = {
 } as const;
 
 // PLACEHOLDER — replace with a real inbox before launch.
-export const contactEmail = "hello@agat.top";
+export const contactEmail = "hello@agatstudio.com";
 
 export const socialLinks = [
   { key: "email", href: `mailto:${contactEmail}`, placeholder: true },
   // PLACEHOLDER — replace with the real Telegram handle.
-  { key: "telegram", href: "https://t.me/agat_top", placeholder: true },
+  { key: "telegram", href: "https://t.me/agatstudio", placeholder: true },
   // PLACEHOLDER — replace with the real Instagram handle.
-  { key: "instagram", href: "https://instagram.com/agat.top", placeholder: true },
+  { key: "instagram", href: "https://instagram.com/agatstudio", placeholder: true },
   // PLACEHOLDER — replace with the real LinkedIn page.
-  { key: "linkedin", href: "https://linkedin.com/company/agat-top", placeholder: true },
+  { key: "linkedin", href: "https://linkedin.com/company/agatstudio", placeholder: true },
 ] as const;

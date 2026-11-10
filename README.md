@@ -1,4 +1,4 @@
-# AGAT — agat.top
+# AGAT Studio — agatstudio.com
 
 AI / Digital Agency site. From idea to digital system.
 

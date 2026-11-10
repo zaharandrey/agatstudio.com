@@ -1,7 +1,7 @@
 import type { Dictionary } from "./en";
 
 // Professional Ukrainian localization. AGAT's pillar sub-brand names
-// (AGAT BUILD / CREATE / AGENTS / GROW / AGAT Lab / agat.top) stay in
+// (AGAT BUILD / CREATE / AGENTS / GROW / AGAT Lab / AGAT Studio) stay in
 // English everywhere, as proper nouns — everything around them is
 // translated naturally, not word-for-word.
 
@@ -10,7 +10,7 @@ const dict: Dictionary = {
     tagline: "Від ідеї до цифрової системи.",
     description: "Ми поєднуємо AI, дизайн і технології, щоб перетворювати ідеї на робочі цифрові системи.",
     ogDescription:
-      "AGAT — AI / digital-агенція. Створюємо сайти, AI-креатив, AI-агентів та автоматизацію — як одну цілісну цифрову систему.",
+      "AGAT Studio — AI / digital-агенція. Створюємо сайти, AI-креатив, AI-агентів та автоматизацію — як одну цілісну цифрову систему.",
   },
 
   common: {
@@ -453,7 +453,7 @@ const dict: Dictionary = {
       {
         question: "Чим насправді займається AGAT?",
         answer:
-          "AGAT — це AI / digital-агенція. Ми створюємо сайти та цифрові продукти (AGAT Build), AI-креатив і контент (AGAT Create), AI-агентів та автоматизацію (AGAT Agents), а також забезпечуємо SEO/GEO і постійний розвиток (AGAT Grow) — як одну цілісну цифрову систему, а не чотири окремі послуги.",
+          "AGAT Studio — це AI / digital-агенція. Ми створюємо сайти та цифрові продукти (AGAT Build), AI-креатив і контент (AGAT Create), AI-агентів та автоматизацію (AGAT Agents), а також забезпечуємо SEO/GEO і постійний розвиток (AGAT Grow) — як одну цілісну цифрову систему, а не чотири окремі послуги.",
       },
       {
         question: "Чи потрібно розбиратися в AI, щоб працювати з AGAT?",
@@ -603,7 +603,7 @@ const dict: Dictionary = {
 
   metadata: {
     home: {
-      title: "AGAT — Від ідеї до цифрової системи.",
+      title: "AGAT Studio — Від ідеї до цифрової системи.",
       description: "Ми поєднуємо AI, дизайн і технології, щоб перетворювати ідеї на робочі цифрові системи.",
     },
     services: {
@@ -629,7 +629,7 @@ const dict: Dictionary = {
     about: {
       title: "Про нас",
       description:
-        "AGAT — AI / digital-агенція, побудована навколо однієї ідеї: ідея, стратегія, AI, дизайн, продукт, автоматизація та зростання як одна цілісна цифрова система.",
+        "AGAT Studio — AI / digital-агенція, побудована навколо однієї ідеї: ідея, стратегія, AI, дизайн, продукт, автоматизація та зростання як одна цілісна цифрова система.",
     },
     contact: {
       title: "Контакти",

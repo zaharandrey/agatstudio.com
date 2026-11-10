@@ -1,8 +1,8 @@
-# AGAT — Brand System
+# AGAT Studio — Brand System
 
 ## Concept
 
-**AGAT** — from idea to digital system. The name (Ukrainian for "agate," the banded stone) gives the brand
+**AGAT Studio** (short form **AGAT**; domain agatstudio.com) — from idea to digital system. The name (Ukrainian for "agate," the banded stone) gives the brand
 one honest visual idea: **layered strata rising to a point.** Every AGAT project moves through the same
 stack — idea, strategy, AI, design, product, automation, growth — and the mark is a literal drawing of that
 stack: three bands, each narrower than the last, ascending to a single accent tip. No brain, no robot, no

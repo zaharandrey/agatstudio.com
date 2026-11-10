@@ -1,6 +1,6 @@
-<svg width="220" height="48" viewBox="0 0 220 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AGAT">
+<svg width="250" height="48" viewBox="0 0 250 48" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AGAT Studio">
   <path d="M4 41L14 29H38L44 41H4Z" fill="#F5F3EF"/>
   <path d="M12 25L20 15H32L38 25H12Z" fill="#F5F3EF" fill-opacity="0.62"/>
   <path d="M19 11L24 4L29 11H19Z" fill="#FF5A29"/>
-  <text x="62" y="33" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="27" letter-spacing="1" fill="#F5F3EF">agat</text>
+  <text x="62" y="33" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="27" letter-spacing="1" fill="#F5F3EF">agat<tspan dx="9" font-weight="400" fill-opacity="0.6">studio</tspan></text>
 </svg>

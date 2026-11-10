@@ -40,7 +40,7 @@ const dict = {
     tagline: "From idea to digital system.",
     description: "We combine AI, design and technology to turn ideas into working digital systems.",
     ogDescription:
-      "AGAT is an AI / digital agency. We build websites, AI creative, AI agents and automation — as one connected digital system.",
+      "AGAT Studio is an AI / digital agency. We build websites, AI creative, AI agents and automation — as one connected digital system.",
   },
 
   common: {
@@ -482,7 +482,7 @@ const dict = {
       {
         question: "What does AGAT actually do?",
         answer:
-          "AGAT is an AI / digital agency. We build websites and digital products (AGAT Build), AI-generated creative and content (AGAT Create), AI agents and automation (AGAT Agents), and ongoing SEO/GEO and growth support (AGAT Grow) — as one connected digital system rather than four separate services.",
+          "AGAT Studio is an AI / digital agency. We build websites and digital products (AGAT Build), AI-generated creative and content (AGAT Create), AI agents and automation (AGAT Agents), and ongoing SEO/GEO and growth support (AGAT Grow) — as one connected digital system rather than four separate services.",
       },
       {
         question: "Do I need to understand AI to work with AGAT?",
@@ -632,7 +632,7 @@ const dict = {
 
   metadata: {
     home: {
-      title: "AGAT — From idea to digital system.",
+      title: "AGAT Studio — From idea to digital system.",
       description: "We combine AI, design and technology to turn ideas into working digital systems.",
     },
     services: {
@@ -658,7 +658,7 @@ const dict = {
     about: {
       title: "About",
       description:
-        "AGAT is an AI / digital agency built around one idea: idea, strategy, AI, design, product, automation and growth as one connected digital system.",
+        "AGAT Studio is an AI / digital agency built around one idea: idea, strategy, AI, design, product, automation and growth as one connected digital system.",
     },
     contact: {
       title: "Contact",
