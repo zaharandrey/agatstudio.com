@@ -1,4 +1,6 @@
 import type { MetadataRoute } from "next";
+
+export const dynamic = "force-static";
 import { site } from "@/lib/content/site";
 import { projectsMeta } from "@/lib/content/projects";
 import { locales, localizeHref, type Locale } from "@/lib/i18n/config";

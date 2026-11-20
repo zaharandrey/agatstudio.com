@@ -9,7 +9,7 @@ export function isLocale(value: string): value is Locale {
 /**
  * uk is served with no URL prefix (agatstudio.com/...), en is served under /en
  * (agatstudio.com/en/...). Use this everywhere an internal <Link> is built so the
- * prefix stays consistent with the routing in middleware.ts.
+ * prefix stays consistent with the static export (see scripts/postbuild.mjs).
  */
 export function localizeHref(locale: Locale, path: string): string {
   const normalized = path.startsWith("/") ? path : `/${path}`;
