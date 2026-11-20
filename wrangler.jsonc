@@ -3,6 +3,7 @@
   // Cloudflare builds the repo with `npm run build` and serves ./out.
   "name": "agatstudio",
   "compatibility_date": "2026-11-01",
+  "previews": {},
   "assets": {
     "directory": "./out",
     "html_handling": "auto-trailing-slash",
