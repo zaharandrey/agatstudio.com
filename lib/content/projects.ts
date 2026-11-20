@@ -7,7 +7,7 @@ import type { Dictionary } from "@/lib/i18n/get-dictionary";
 
 export type ProjectMeta = {
   slug: string;
-  pillar: "build" | "create" | "agents" | "grow";
+  pillar: "build" | "create" | "agents" | "grow" | "erp";
   cover: { from: string; to: string; pattern: "strata" | "grid" | "wave" | "dot" };
 };
 

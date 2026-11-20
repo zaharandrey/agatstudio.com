@@ -10,6 +10,7 @@ const pillarAccent: Record<string, string> = {
   create: "#FF5A29",
   agents: "#9A968D",
   grow: "#FF5A29",
+  erp: "#F5F3EF",
 };
 
 export default function Showcase({ dict }: { dict: Dictionary }) {

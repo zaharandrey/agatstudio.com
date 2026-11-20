@@ -1,6 +1,6 @@
 import type { Dictionary } from "@/lib/i18n/get-dictionary";
 
-export const pillarIds = ["build", "create", "agents", "grow"] as const;
+export const pillarIds = ["build", "create", "agents", "grow", "erp"] as const;
 export type PillarId = (typeof pillarIds)[number];
 
 export function getPillars(dict: Dictionary) {

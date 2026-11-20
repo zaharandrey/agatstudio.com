@@ -1,7 +1,7 @@
 // Canonical dictionary — its shape (via `typeof`) is the Dictionary type
 // that lib/i18n/dictionaries/uk.ts must also satisfy.
 
-type PillarId = "build" | "create" | "agents" | "grow";
+type PillarId = "build" | "create" | "agents" | "grow" | "erp";
 
 // Explicitly typed (rather than left to plain object-literal inference) so
 // every pillar shares one shape — otherwise TS infers a distinct type per
@@ -90,7 +90,7 @@ const dict = {
 
   pillarsSection: {
     eyebrow: "What we build",
-    title: "Four disciplines. One system.",
+    title: "Five disciplines. One system.",
     exploreCta: "Explore",
   },
 
@@ -196,6 +196,31 @@ const dict = {
         "Ongoing digital development",
       ],
     } as PillarText,
+    erp: {
+      id: "erp",
+      code: "05",
+      name: "AGAT ERP",
+      short: "Odoo ERP & business systems",
+      statement: "One control center for the business instead of a dozen spreadsheets and apps.",
+      description:
+        "We implement Odoo as a single system for sales, inventory, purchasing, accounting and the team — configured around how the business actually works, with data migration, team training and support after launch. On top of the ERP we add AI assistants and automation so the system works for you.",
+      deliverables: [
+        "Turnkey Odoo implementation",
+        "Business process audit & mapping",
+        "CRM & sales",
+        "Inventory & purchasing",
+        "Manufacturing",
+        "Accounting & document flow",
+        "Website & online store integration",
+        "Delivery, marketplace & bank integrations",
+        "Data migration from Excel and other systems",
+        "Custom modules for your processes",
+        "Team training",
+        "Technical support",
+        "AI assistants & automation in Odoo",
+      ],
+      flow: ["Audit", "Setup", "Migration", "Training", "Launch", "Support"],
+    } as PillarText,
   },
 
   showcase: {
@@ -229,6 +254,7 @@ const dict = {
       { label: "Content", note: "Visuals, video, social" },
       { label: "AI Agent", note: "Answers, qualifies, routes" },
       { label: "Automation", note: "Connects the tools you already use" },
+      { label: "ERP system", note: "Sales, inventory and accounting in Odoo" },
       { label: "Analytics", note: "What's actually working" },
       { label: "Growth", note: "Continuous iteration" },
     ],
@@ -482,7 +508,7 @@ const dict = {
       {
         question: "What does AGAT actually do?",
         answer:
-          "AGAT Studio is an AI / digital agency. We build websites and digital products (AGAT Build), AI-generated creative and content (AGAT Create), AI agents and automation (AGAT Agents), and ongoing SEO/GEO and growth support (AGAT Grow) — as one connected digital system rather than four separate services.",
+          "AGAT Studio is an AI / digital agency. We build websites and digital products (AGAT Build), AI-generated creative and content (AGAT Create), AI agents and automation (AGAT Agents), ongoing SEO/GEO and growth support (AGAT Grow), and Odoo ERP & business systems (AGAT ERP) — as one connected digital system rather than five separate services.",
       },
       {
         question: "Do I need to understand AI to work with AGAT?",
@@ -522,6 +548,7 @@ const dict = {
       { label: "AGAT Create — AI creative studio", anchor: "#create" },
       { label: "AGAT Agents — AI agents & automation", anchor: "#agents" },
       { label: "AGAT Grow — SEO, GEO & continuous growth", anchor: "#grow" },
+      { label: "AGAT ERP — Odoo implementation & business systems", anchor: "#erp" },
     ],
     company: ["About", "Work", "Process", "Lab", "Contact"],
     legal: { privacy: "Privacy Policy", terms: "Terms" },
@@ -544,8 +571,8 @@ const dict = {
     },
     block1: {
       title: "Not a website shop. Not an AI gimmick.",
-      p1: "Most businesses end up briefing a different vendor for the website, the content, the automation and the ongoing growth work — four relationships, four handoffs, four places for context to get lost.",
-      p2: "AGAT builds all four as one system from the start: AGAT Build, AGAT Create, AGAT Agents and AGAT Grow. AI is what lets a small studio move at that scope without the traditional headcount — but it's still a person making every call on strategy, taste and what actually ships.",
+      p1: "Most businesses end up briefing a different vendor for the website, the content, the automation, the ERP and the ongoing growth work — five relationships, five handoffs, five places for context to get lost.",
+      p2: "AGAT builds all five as one system from the start: AGAT Build, AGAT Create, AGAT Agents, AGAT Grow and AGAT ERP. AI is what lets a small studio move at that scope without the traditional headcount — but it's still a person making every call on strategy, taste and what actually ships.",
     },
     block2: {
       title: "You bring the idea. We build the system.",
@@ -557,9 +584,9 @@ const dict = {
   servicesPage: {
     pageHero: {
       eyebrow: "Services",
-      title: "Four disciplines. One system.",
+      title: "Five disciplines. One system.",
       description:
-        "AGAT doesn't sell a list of deliverables. Every engagement draws from the same four connected disciplines — as much or as little as the project needs.",
+        "AGAT doesn't sell a list of deliverables. Every engagement draws from the same five connected disciplines — as much or as little as the project needs.",
     },
   },
 
@@ -638,7 +665,7 @@ const dict = {
     services: {
       title: "Services",
       description:
-        "Four connected disciplines: AGAT Build (websites & digital products), AGAT Create (AI creative studio), AGAT Agents (AI agents & automation) and AGAT Grow (SEO, GEO & continuous growth).",
+        "Five connected disciplines: AGAT Build (websites & digital products), AGAT Create (AI creative studio), AGAT Agents (AI agents & automation), AGAT Grow (SEO, GEO & continuous growth) and AGAT ERP (Odoo implementation & business systems).",
     },
     work: {
       title: "Work",
